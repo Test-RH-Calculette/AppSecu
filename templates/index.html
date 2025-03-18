@@ -3,26 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suivi des remboursements</title>
+    <title>Suivi des remboursements médicaux</title>
+    <link rel="stylesheet" href="/static/styles.css">
     <script defer src="/static/script.js"></script>
 </head>
 <body>
-    <button onclick="location.href='/report'">Voir le suivi</button>
+    <div class="app-container">
+        <header>
+            <h1>Suivi des Remboursements Médicaux</h1>
+            <img src="/static/logo.png" alt="Logo" class="logo">
+        </header>
 
-    <h1>Ajout d'un acte médical</h1>
-    <form id="reimbursement-form">
-        <label>Date: <input type="date" id="date"></label><br>
-        <label>Type d’acte médical: <input type="text" id="act_type"></label><br>
-        <label>Montant payé: <input type="number" id="amount_paid"></label><br>
-        <label>Remboursé par la Sécurité sociale ? <input type="checkbox" id="reimbursed_by_secu"></label><br>
-        <div id="secu-fields" style="display: none;">
-            <label>Base remboursement: <input type="number" id="base_reimbursement"></label><br>
-            <label>Taux (%): <input type="number" id="rate"></label><br>
-            <label>Montant réellement versé: <input type="number" id="real_amount_reimbursed"></label><br>
-            <label>Participation forfaitaire: <input type="number" id="forfait_participation"></label><br>
-        </div>
-        <button type="submit">Ajouter</button>
-    </form>
-    <div id="message"></div>
+        <nav>
+            <button onclick="location.href='/'">Ajouter un acte médical</button>
+            <button onclick="location.href='/report'">Voir le suivi</button>
+        </nav>
+
+        <main>
+            <h2>Ajout d'un acte médical</h2>
+            <form id="reimbursement-form">
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date">
+                </div>
+                <div class="form-group">
+                    <label for="act_type">Type d’acte médical:</label>
+                    <input type="text" id="act_type">
+                </div>
+                <div class="form-group">
+                    <label for="amount_paid">Montant payé (€):</label>
+                    <input type="number" id="amount_paid">
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label for="reimbursed_by_secu">Remboursé par la Sécurité sociale ?</label>
+                    <input type="checkbox" id="reimbursed_by_secu">
+                </div>
+
+                <div id="secu-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="base_reimbursement">Base remboursement (€):</label>
+                        <input type="number" id="base_reimbursement">
+                    </div>
+                    <div class="form-group">
+                        <label for="rate">Taux de remboursement (%):</label>
+                        <input type="number" id="rate">
+                    </div>
+                    <div class="form-group">
+                        <label for="real_amount_reimbursed">Montant réellement versé (€):</label>
+                        <input type="number" id="real_amount_reimbursed">
+                    </div>
+                    <div class="form-group">
+                        <label for="forfait_participation">Participation forfaitaire (€):</label>
+                        <input type="number" id="forfait_participation">
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label for="is_mutuelle">Mutuelle utilisée ?</label>
+                    <input type="checkbox" id="is_mutuelle">
+                </div>
+
+                <div id="mutuelle-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="mutuelle_name">Nom de la mutuelle:</label>
+                        <input type="text" id="mutuelle_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="mutuelle_reimbursed">Montant remboursé (€):</label>
+                        <input type="number" id="mutuelle_reimbursed">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">Ajouter</button>
+            </form>
+
+            <div id="calculation-result"></div>
+            <div id="message"></div>
+        </main>
+    </div>
 </body>
 </html>
