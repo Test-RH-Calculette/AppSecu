@@ -4,7 +4,7 @@ import os
 
 # Mise à jour du projet
 updated_project_structure = {
-    "ApSecu": {
+    "AppSecu": {
         "app.py": """\
 from flask import Flask, render_template, request, jsonify
 import sqlite3
