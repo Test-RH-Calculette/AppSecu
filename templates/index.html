@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des remboursements</title>
+    <script defer src="/static/script.js"></script>
+</head>
+<body>
+    <button onclick="location.href='/report'">Voir le suivi</button>
+
+    <h1>Ajout d'un acte médical</h1>
+    <form id="reimbursement-form">
+        <label>Date: <input type="date" id="date"></label><br>
+        <label>Type d’acte médical: <input type="text" id="act_type"></label><br>
+        <label>Montant payé: <input type="number" id="amount_paid"></label><br>
+        <label>Remboursé par la Sécurité sociale ? <input type="checkbox" id="reimbursed_by_secu"></label><br>
+        <div id="secu-fields" style="display: none;">
+            <label>Base remboursement: <input type="number" id="base_reimbursement"></label><br>
+            <label>Taux (%): <input type="number" id="rate"></label><br>
+            <label>Montant réellement versé: <input type="number" id="real_amount_reimbursed"></label><br>
+            <label>Participation forfaitaire: <input type="number" id="forfait_participation"></label><br>
+        </div>
+        <button type="submit">Ajouter</button>
+    </form>
+    <div id="message"></div>
+</body>
+</html>
