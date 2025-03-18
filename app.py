@@ -4,7 +4,7 @@ import os
 
 # Mise à jour du projet
 updated_project_structure = {
-    "med_reimburse_app": {
+    "ApSecu": {
         "app.py": """\
 from flask import Flask, render_template, request, jsonify
 import sqlite3
