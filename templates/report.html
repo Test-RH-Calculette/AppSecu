@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapports des remboursements médicaux</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script defer src="/static/report.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Suivi des remboursements médicaux</h1>
+            <img src="/static/logo.png" alt="Logo" class="logo">
+        </header>
+
+        <nav>
+            <button onclick="location.href='/'">Ajouter un acte médical</button>
+            <button onclick="location.href='/report'">Voir le suivi</button>
+        </nav>
+
+        <main>
+            <h2>Historique des remboursements</h2>
+            <button onclick="loadReimbursements()">Afficher les remboursements</button>
+
+            <div id="chart-container">
+                <h3>Reste à charge par mois</h3>
+                <img src="/chart.png" alt="Graphique des restes à charge">
+            </div>
+
+            <h3>Actes non remboursés</h3>
+            <ul id="unreimbursed-list"></ul>
+
+            <table border="1" id="report-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Acte médical</th>
+                        <th>Montant payé</th>
+                        <th>Base remboursement</th>
+                        <th>Taux</th>
+                        <th>Montant remboursé</th>
+                        <th>Participation forfaitaire</th>
+                        <th>Montant non remboursé</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </main>
+    </div>
+</body>
+</html>
